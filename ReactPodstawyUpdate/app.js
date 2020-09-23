@@ -1,8 +1,18 @@
 const App = () => {
+    const [text, setText] = React.useState('');
+
+    const handleOnClick = () => {
+        const letter = 'A';
+        setText(text + letter);
+
+    }
+
     return (
-        <div>
-            <h1>Prezentacja stanu w React</h1>
-            <p>Wartość stanu: </p>
-        </div>
+        <>
+            <button onClick={handleOnClick}>Dodaj "A"</button>
+            <h1>{text}</h1>
+        </>
     )
 }
+
+ReactDOM.render(<App />, document.getElementById('root'));
