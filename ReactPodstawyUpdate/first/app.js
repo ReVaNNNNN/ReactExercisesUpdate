@@ -2,9 +2,8 @@ const App = () => {
     const [text, setText] = React.useState('');
 
     const handleOnClick = () => {
-        const letter = 'A';
+        const letter = "A";
         setText(text + letter);
-
     }
 
     return (
