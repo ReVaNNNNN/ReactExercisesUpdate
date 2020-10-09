@@ -6,9 +6,11 @@ class UserInfo extends PureComponent {
   render() {
     return (
       <AppContext.Consumer>
-        <div>
-          <p>Użytkownik jest</p>
-        </div>
+        {(props) => (
+          <div>
+            <p>Użytkownik jest {props.isUserLogged}</p>
+          </div>
+        )}
       </AppContext.Consumer>
     );
   }
