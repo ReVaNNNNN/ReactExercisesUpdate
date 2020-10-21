@@ -23,11 +23,6 @@ const Form = ({addRate, editRate, author = '', comment = '', id, rate = 5, callb
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        //basic validation
-        if (!authorInput.length) {
-            return;
-        }
-
         const rateObject = {
             author: authorInput,
             comment: commentInput,
