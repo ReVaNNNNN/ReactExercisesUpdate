@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
-const Form = ({author = '', comment = '', id, rate = 5, callback}) => {
+import { addRate, editRate } from './actions/appActions';
+
+const Form = ({addRate, editRate, author = '', comment = '', id, rate = 5, callback}) => {
     const [authorInput, setAuthorInput] = useState(author);
     const [commentInput, setCommentInput] = useState(comment);
     const [rateInput, setRateInput] = useState(rate);
@@ -31,6 +34,8 @@ const Form = ({author = '', comment = '', id, rate = 5, callback}) => {
             rate: Number(rateInput),
             id
         }
+
+        id ? editRate(rateObject) : addRate(rateObject);
         
         if (id) {
             callback();
@@ -78,4 +83,11 @@ const Form = ({author = '', comment = '', id, rate = 5, callback}) => {
     );
 }
 
-export default Form;
+const connectActionsToProps = ({
+    addRate,
+    editRate
+});
+
+const FormConsumer = connect(null, connectActionsToProps)(Form);
+
+export default FormConsumer;
